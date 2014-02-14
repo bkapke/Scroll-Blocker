@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Don't Scroll Me Bro</title>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="js/scroll-blocker.js"></script>
+    
+    <link rel="stylesheet" href="css/demo.css">
+    
+    <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/default.min.css">
+    <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+
+    
+</head>
+
+<body>
+
+<div id="scrollWindow">
+    <div class="container-pad">
+        <h1>Scroll Me Bro</h1>
+        <h2>A simple jQuery backed scroll arrester</h2>
+        <p>Quickly block un-intentional background scrolling when certain elements are scrolled or touched.
+            Un-intentional scrolling and bouncing can make an app's layout seem loose and sloppy</p>
+        <h3><strong>The Test</strong></h3>
+        <p>Scrolling inside of this div with the mouse wheel or on a touch device should allow the content to freely scroll up and down.</p>
+        <hr>
+        <h3><strong>Implementation</strong></h3>
+        <p>Add the scroll lock to your page with one line of jQuery!</p>
+        
+        <div class="code-wrap">
+            <code>
+                var noBroNo = new ScrollBlocker($('#noBroNo'));
+            </code>
+        </div>
+
+        <h3>Need to nest a scrollable element in one that is locked?</h3>
+        
+        <div class="code-wrap">
+            <code>
+                var nestedScrollingDiv = new NestedScroller($('#nested-scroll'));
+            </code>
+        </div>
+        <p>Syntax Highlighting by <a href="http://highlightjs.org/">Highlight.js</a></p>
+        <p>Ipsum text by <a href="http://veggieipsum.com/">Veggie Ipsum</a></p>
+    </div>
+    </div>
+</div>
+
+<div id="noBroNo">
+    <div class="container-pad">
+        <h1>Don't scroll me Bro.</h1>
+        <p>
+            Scroll This div with the mouse wheel.  With the scroll blocker turned on, there should be no effect on the right hand side
+        </p>
+        <h3><strong>The Test</strong></h3>
+        <p>
+            Click the Remove button and test the page out without scroll blocker.  With the scroll blocker removed the right side of the page now scrolls
+            When the mouse wheel is used on the left side.  Gross right?
+        </p>
+        <button id="remove">Remove Scroll Blocker</button>
+        <button id="add">Add Scroll Blocker</button>
+        <br><br>
+        <div id="nested-scroll">
+            <p>Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion daikon amaranth tatsoi tomatillo melon azuki bean garlic.</p>
+            
+            <p>Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi pea sprouts fava bean collard greens dandelion okra
+            wakame tomato. Dandelion cucumber earthnut pea peanut soko zucchini.</p>
+            
+            <p>Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi amaranth water spinach avocado daikon napa cabbage
+            asparagus winter purslane kale. Celery potato scallion desert raisin horseradish spinach carrot soko. Lotus root water spinach
+            fennel kombu maize bamboo shoot green bean swiss chard seakale pumpkin onion chickpea gram corn pea. Brussels sprout coriander
+            water chestnut gourd swiss chard wakame kohlrabi beetroot carrot watercress. Corn amaranth salsify bunya nuts nori azuki bean
+            chickweed potato bell pepper artichoke.</p>
+        </div>
+        <br>
+        <em>This is a nested scroller.</em>
+    </div>
+</div>
+
+</body>
+
+<script>
+
+    
+    $(document).ready(function() {
+        var noBroNo = new ScrollLock($('#noBroNo'));
+        
+        $('#remove').click(function() {
+            noBroNo.removeListener();
+            $(this).hide();
+            $('#add').show()
+        });
+    
+        $('#add').click(function() {
+            noBroNo.addListener();
+            $(this).hide();
+            $('#remove').show()
+        });
+        
+        var nestedScrollingDiv = new NestedScroller($('#nested-scroll'));
+        
+        
+      $('code').each(function(i, e) {hljs.highlightBlock(e)});
+    });
+
+</script>
+</html>

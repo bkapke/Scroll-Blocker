@@ -1,0 +1,48 @@
+    code {
+        width:100%;
+        white-space: nowrap;
+        
+    }
+    
+    .code-wrap {
+        margin:20px 0;
+        overflow:scroll;
+    }
+
+    html, body {
+        margin:0;
+        padding:0;
+    }
+    
+    #scrollWindow {
+        width:50%;
+        height: 3200px;
+        float:right;
+        border:thin silver solid;
+        -moz-boz-sizing: border-box;
+        box-sizing: border-box;
+    }
+    
+    #noBroNo {
+        width:50%;
+        height:100%;
+        background-color: #d5d5d5;
+        position:fixed;
+        left:0;
+    }
+    .container-pad {
+        width:90%;
+        margin:0 auto;
+    }
+    
+    #add {
+        display:none;
+    }
+    
+    #nested-scroll {
+        height:100px;
+        overflow-y:scroll !important;
+        padding:10px;
+        /*border:thin black solid;*/
+        background-color: #C0C0C0;
+    }
